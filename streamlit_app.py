@@ -1,39 +1,34 @@
 from streamlit.components.v1 import html
 
-kakao_app_key = "af66d0f1f7ad2f0028df6e6c72057eb6"
-share_text = "🌟 오늘의 운세를 확인해보세요!\nhttps://chatbot-unse-noglitch.streamlit.app/"
-
 html(f"""
-<!-- Kakao SDK 로드 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
-  Kakao.init("{kakao_app_key}");
+  Kakao.init("af66d0f1f7ad2f0028df6e6c72057eb6");  // 반드시 새 앱의 JS 키!
 
-  function sendKakao() {{
+  function shareToKakao() {{
     Kakao.Link.sendDefault({{
       objectType: 'text',
-      text: `{share_text}`,
+      text: '✨ 새로운 주소에서 직접 공유 테스트 중!',
       link: {{
-        mobileWebUrl: 'https://chatbot-unse-noglitch.streamlit.app/',
-        webUrl: 'https://chatbot-unse-noglitch.streamlit.app/'
+        mobileWebUrl: 'https://chatbot-unse-noglitch.streamlit.app',
+        webUrl: 'https://chatbot-unse-noglitch.streamlit.app'
       }},
       buttonTitle: '운세 보러가기'
     }});
   }}
 </script>
 
-<!-- 버튼 UI -->
 <div style="text-align:center; margin-top: 20px;">
-  <button onclick="sendKakao()" style="
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #FEE500;
-      color: #3C1E1E;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;">
-    💬 카카오톡으로 운세 공유하기
+  <button onclick="shareToKakao()" style="
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;">
+    💬 카카오톡 공유 테스트
   </button>
 </div>
-""", height=100)
+""", height=120)
