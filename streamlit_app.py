@@ -1,14 +1,19 @@
-from streamlit.components.v1 import html
-
 html(f"""
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
-  Kakao.init("af66d0f1f7ad2f0028df6e6c72057eb6");  // 반드시 새 앱의 JS 키!
+  window.onload = function() {{
+    if (!Kakao.isInitialized()) {{
+      Kakao.init("{kakao_app_key}");
+    }}
+  }};
 
   function shareToKakao() {{
+    if (!Kakao.isInitialized()) {{
+      Kakao.init("{kakao_app_key}");
+    }}
     Kakao.Link.sendDefault({{
       objectType: 'text',
-      text: '✨ 새로운 주소에서 직접 공유 테스트 중!',
+      text: '✨ AI가 알려주는 오늘의 운세!',
       link: {{
         mobileWebUrl: 'https://chatbot-unse-noglitch.streamlit.app',
         webUrl: 'https://chatbot-unse-noglitch.streamlit.app'
