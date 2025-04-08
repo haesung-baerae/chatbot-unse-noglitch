@@ -1,6 +1,6 @@
 from streamlit.components.v1 import html
 
-kakao_app_key = "e81bbaa2211fcf6024940d3cac85cc5b"
+kakao_app_key = "af66d0f1f7ad2f0028df6e6c72057eb6"
 share_text = "🌟 오늘의 운세를 확인해보세요!\nhttps://chatbot-unse-noglitch.streamlit.app/"
 
 html(f"""
